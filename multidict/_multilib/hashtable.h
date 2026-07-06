@@ -1291,6 +1291,9 @@ fail:
 static inline void
 md_post_update(MultiDictObject *md)
 {
+    if (PyErr_Occurred()) {
+        return;
+    }
     htkeys_t *keys = md->keys;
     size_t num_slots = htkeys_nslots(keys);
     entry_t *entries = htkeys_entries(keys);

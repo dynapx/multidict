@@ -397,7 +397,10 @@ multidict_repr(MultiDictObject *self)
     PyObject *name =
         PyObject_GetAttr((PyObject *)Py_TYPE(self), self->state->str_name);
     if (name == NULL) {
+        PyObject *etype, *evalue, *etraceback;
+        PyErr_Fetch(&etype, &evalue, &etraceback);
         Py_ReprLeave((PyObject *)self);
+        PyErr_Restore(etype, evalue, etraceback);
         return NULL;
     }
     PyObject *ret = md_repr(self, name, true, true);
