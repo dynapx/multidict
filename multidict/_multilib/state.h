@@ -125,7 +125,7 @@ get_mod_state_by_def(PyObject *self)
         if (PyErr_ExceptionMatches(PyExc_TypeError)) {
             PyErr_Clear();
         }
-        return NULL; 
+        return NULL;
     }
     return get_mod_state(mod);
 }
