@@ -129,7 +129,9 @@ fail:
         // Cleanup soft-deleted items
         md_post_update(self);
     }
-    ASSERT_CONSISTENT(self, false);
+    if (!PyErr_Occurred()) {
+        ASSERT_CONSISTENT(self, false);
+    }
     Py_CLEAR(seq);
     return -1;
 }
