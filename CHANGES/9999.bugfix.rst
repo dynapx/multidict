@@ -1,2 +1,2 @@
-﻿Fix crash in debug builds.
+﻿Fixed crash in debug builds.
 
