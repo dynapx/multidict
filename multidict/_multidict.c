@@ -543,7 +543,8 @@ multidict_tp_init(MultiDictObject *self, PyObject *args, PyObject *kwds)
 {
     mod_state *state = get_mod_state_by_def((PyObject *)self);
     if (state == NULL) {
-        PyErr_SetString(PyExc_RuntimeError, "Failed to retrieve module state for MultiDict");
+        PyErr_SetString(PyExc_RuntimeError,
+                        "Failed to retrieve module state for MultiDict");
         goto fail;
     }
     PyObject *arg = NULL;
@@ -1066,7 +1067,8 @@ multidict_proxy_tp_init(MultiDictProxyObject *self, PyObject *args,
 {
     mod_state *state = get_mod_state_by_def((PyObject *)self);
     if (state == NULL) {
-        PyErr_SetString(PyExc_RuntimeError, "Failed to retrieve module state for MultiDict");
+        PyErr_SetString(PyExc_RuntimeError,
+                        "Failed to retrieve module state for MultiDict");
         return -1;
     }
     PyObject *arg = NULL;
