@@ -545,7 +545,7 @@ multidict_tp_init(MultiDictObject *self, PyObject *args, PyObject *kwds)
     if (state == NULL) {
         PyErr_SetString(PyExc_RuntimeError, "Failed to retrieve module state for MultiDict");
         goto fail;
-}
+    }
     PyObject *arg = NULL;
     Py_ssize_t size =
         _multidict_extend_parse_args(state, args, kwds, "MultiDict", &arg);
@@ -1005,9 +1005,11 @@ cimultidict_tp_init(MultiDictObject *self, PyObject *args, PyObject *kwds)
 {
     mod_state *state = get_mod_state_by_def((PyObject *)self);
     if (state == NULL) {
-    PyErr_SetString(PyExc_RuntimeError, "Failed to retrieve module state for CIMultiDictProxy");
+        PyErr_SetString(
+            PyExc_RuntimeError,
+            "Failed to retrieve module state for CIMultiDictProxy");
         goto fail;
-}
+    }
     PyObject *arg = NULL;
     Py_ssize_t size =
         _multidict_extend_parse_args(state, args, kwds, "CIMultiDict", &arg);
@@ -1066,7 +1068,7 @@ multidict_proxy_tp_init(MultiDictProxyObject *self, PyObject *args,
     if (state == NULL) {
         PyErr_SetString(PyExc_RuntimeError, "Failed to retrieve module state for MultiDict");
         return -1;
-}
+    }
     PyObject *arg = NULL;
     MultiDictObject *md = NULL;
 
@@ -1322,9 +1324,11 @@ cimultidict_proxy_tp_init(MultiDictProxyObject *self, PyObject *args,
 {
     mod_state *state = get_mod_state_by_def((PyObject *)self);
     if (state == NULL) {
-        PyErr_SetString(PyExc_RuntimeError, "Failed to retrieve module state for CIMultiDictProxy");
+        PyErr_SetString(
+            PyExc_RuntimeError,
+            "Failed to retrieve module state for CIMultiDictProxy");
         return -1;
-}
+    }
     PyObject *arg = NULL;
     MultiDictObject *md = NULL;
 
